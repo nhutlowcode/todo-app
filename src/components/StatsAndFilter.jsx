@@ -6,7 +6,9 @@ import { Button } from './ui/button'
 function StatsAndFilter({ 
   completedTaskCount = 0, 
   activeTaskCount = 0, 
-  filter = "all"}) {
+  filter = "all",
+  setFilter
+}) {
   return (
     <div className='flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center'>
       {/* Phần thống kê */}
@@ -35,6 +37,7 @@ function StatsAndFilter({
               variant={filter === type ? "gradient" : "ghost"}
               size='sm'
               className="capitalize rounded-md"
+              onClick={() => setFilter(type)}
             >
               <Filter className="size-4"/>
               {FilterType[type]}
